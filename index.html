@@ -360,6 +360,100 @@ html.tema-dia .retrato-legenda span { color: #b9b9bf !important; }
   .hero .eyebrow-mobile { display: block; order: -2; }
   .hero-copy > .eyebrow { display: none; } /* Mesmo texto já visível acima da foto. */
 }
+
+/* ===== FRASE DE IMPACTO — topo do site ===== */
+.frase-topo{
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid rgba(212,175,55,.55);
+  border-bottom:1px solid rgba(212,175,55,.55);
+  background:
+    radial-gradient(900px 170px at 50% 0%,rgba(212,175,55,.18),transparent 70%),
+    linear-gradient(105deg,#101014 0%,#1d1d23 48%,#101014 100%);
+}
+/* varredura de luz discreta, passa de tempos em tempos */
+.frase-topo::after{
+  content:"";
+  position:absolute;top:0;bottom:0;width:36%;left:-45%;
+  background:linear-gradient(100deg,transparent,rgba(255,248,220,.13),transparent);
+  transform:skewX(-18deg);
+  animation:fraseVarredura 7s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes fraseVarredura{0%{left:-45%}55%,100%{left:125%}}
+.frase-topo-inner{
+  position:relative;
+  min-height:118px;
+  display:flex;align-items:center;justify-content:center;gap:20px;
+  padding:24px 0;
+}
+.frase-linha{
+  position:relative;
+  width:clamp(26px,6vw,90px);height:1px;flex:0 0 auto;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.frase-linha::after{
+  content:"";position:absolute;top:50%;width:6px;height:6px;
+  background:var(--gold);transform:translateY(-50%) rotate(45deg);
+  box-shadow:0 0 10px rgba(212,175,55,.7);
+}
+.frase-linha:first-child::after{right:-3px}
+.frase-linha:last-child::after{left:-3px}
+.frase-texto{
+  font-family:Fraunces,Georgia,serif;
+  font-weight:800;
+  font-size:clamp(1.4rem,3.5vw,2.6rem);
+  line-height:1.18;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  text-align:center;
+  background:linear-gradient(100deg,#b6912f 0%,#f6dd8a 22%,#ffffff 50%,#f6dd8a 78%,#b6912f 100%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:fraseBrilho 6s linear infinite;
+  filter:drop-shadow(0 4px 22px rgba(212,175,55,.28));
+}
+.frase-texto b{
+  font-style:italic;font-weight:800;
+  background:linear-gradient(100deg,#ffffff,#fff3c4,#ffffff);
+  background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:fraseBrilho 4.5s linear infinite reverse;
+}
+@keyframes fraseBrilho{from{background-position:0 0}to{background-position:220% 0}}
+
+/* tema claro */
+html.tema-dia .frase-topo{
+  border-top-color:rgba(138,106,34,.5);
+  border-bottom-color:rgba(138,106,34,.5);
+  background:
+    radial-gradient(900px 170px at 50% 0%,rgba(212,175,55,.22),transparent 70%),
+    linear-gradient(105deg,#efefec 0%,#ffffff 48%,#efefec 100%);
+}
+html.tema-dia .frase-linha{background:linear-gradient(90deg,transparent,#8a6a22,transparent)}
+html.tema-dia .frase-linha::after{background:#8a6a22;box-shadow:0 0 8px rgba(138,106,34,.5)}
+html.tema-dia .frase-texto{
+  background:linear-gradient(100deg,#8a6a22 0%,#c9a13a 22%,#6b5115 50%,#c9a13a 78%,#8a6a22 100%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  filter:none;
+}
+html.tema-dia .frase-texto b{
+  background:linear-gradient(100deg,#6b5115,#a37d21,#6b5115);
+  background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;
+}
+@media (max-width:720px){
+  .frase-topo-inner{min-height:98px;padding:18px 0;gap:12px}
+  .frase-linha{display:none}
+  .frase-texto{font-size:clamp(1.22rem,6.4vw,1.8rem);letter-spacing:.02em}
+}
+@media (prefers-reduced-motion:reduce){
+  .frase-topo::after{animation:none;display:none}
+  .frase-texto,.frase-texto b{animation:none}
+}
 </style>
 <script>try{if(localStorage.getItem('temaLuciana')==='dia'){document.documentElement.classList.add('tema-dia')}}catch(e){}</script>
 </head>
@@ -399,6 +493,15 @@ html.tema-dia .retrato-legenda span { color: #b9b9bf !important; }
 </header>
 
 <main id="inicio">
+  <!-- FRASE DE IMPACTO — recebe o visitante já no topo -->
+  <div class="frase-topo" role="note" aria-label="Frase de destaque">
+    <div class="wrap frase-topo-inner">
+      <span class="frase-linha" aria-hidden="true"></span>
+      <p class="frase-texto">Quem não é <b>visto</b>, não é <b>lembrado</b>.</p>
+      <span class="frase-linha" aria-hidden="true"></span>
+    </div>
+  </div>
+
   <!-- HERO -->
   <div class="wrap hero">
     <!-- Cópia mobile da chamada: a original permanece no lugar no desktop. -->
