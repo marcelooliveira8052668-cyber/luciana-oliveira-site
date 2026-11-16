@@ -454,6 +454,15 @@ html.tema-dia .frase-texto b{
   .frase-topo::after{animation:none;display:none}
   .frase-texto,.frase-texto b{animation:none}
 }
+
+/* ===== Contraste do contato/rodapé no tema claro =====
+   O card de CTA permanece escuro nos dois temas — o texto precisa acompanhar. */
+html.tema-dia .cta-final .eyebrow{color:var(--gold-2)!important}
+html.tema-dia .cta-final h2{color:#ffffff}
+html.tema-dia .cta-final > p{color:#a8a8ad}
+html.tema-dia .cta-final .btn-ghost{color:#ffffff;border-color:#3a3a40}
+html.tema-dia .cta-final .btn-ghost:hover{border-color:var(--gold-2);color:var(--gold-2)}
+html.tema-dia .site-footer{color:#5a5a62}
 </style>
 <script>try{if(localStorage.getItem('temaLuciana')==='dia'){document.documentElement.classList.add('tema-dia')}}catch(e){}</script>
 </head>
