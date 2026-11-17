@@ -160,6 +160,8 @@ blockquote{border-left:3px solid var(--gold);padding-left:18px;margin:20px 0;fon
 .trabalho{flex:0 0 236px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-decoration:none;transition:transform .2s,border-color .2s}
 .trabalho:hover{transform:translateY(-4px);border-color:#ffffff}
 .trabalho img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-bottom:2px solid var(--line)}
+/* Mantém a imagem vertical de divulgação inteira, sem cortes no anúncio. */
+.trabalho-poster img{object-fit:contain;background:#070c15}
 .trabalho-info{padding:12px 14px}
 .trabalho-info b{font-size:.88rem;display:block}
 .trabalho-info span{display:block;font-size:.7rem;color:var(--muted);margin-top:3px;line-height:1.45}
@@ -638,6 +640,7 @@ html.tema-dia .site-footer{color:#5a5a62}
     <div class="galeria" tabindex="0" role="region" aria-label="Trabalhos recentes — role para o lado">
       <article class="trabalho"><img src="assets/clientes/danilo.png" alt="Arte de Danilo Castro, ex-jogador de basquete, divulgando palestras, clínicas e treinamentos" loading="lazy"><div class="trabalho-info"><b>Danilo Castro</b><span>Palestras e clínicas · ex-jogador de basquete</span></div></article>
       <article class="trabalho"><img src="assets/clientes/alessandra.png" alt="Arte de Alessandra Santos de Oliveira, campeã mundial e medalhista olímpica, divulgando palestras" loading="lazy"><div class="trabalho-info"><b>Alessandra Santos de Oliveira</b><span>Campeã mundial e medalhista olímpica</span></div></article>
+      <article class="trabalho trabalho-poster"><img src="assets/clientes/miguel-angelo-da-luz.webp" alt="Arte de divulgação de palestra ou clínica com Miguel Ângelo da Luz, ícone do basquete brasileiro" loading="lazy" decoding="async"><div class="trabalho-info"><b>Miguel Ângelo da Luz</b><span>Palestras e clínicas · basquete brasileiro</span></div></article>
       <article class="trabalho"><img src="assets/clientes/vanessa.png" alt="Arte de Vanessa Sassá, ex-Seleção Brasileira de basquete 3x3, divulgando palestras, clínicas e mentorias" loading="lazy"><div class="trabalho-info"><b>Vanessa Sassá</b><span>Ex-Seleção Brasileira · 3x3</span></div></article>
       <article class="trabalho"><img src="assets/clientes/fatiminha.jpeg" alt="Poster de Fátima Fatiminha, árbitra e representante técnica da FIBA, para palestras e clínicas" loading="lazy"><div class="trabalho-info"><b>Fátima “Fatiminha”</b><span>Árbitra e representante técnica da FIBA</span></div></article>
       <article class="trabalho"><img src="assets/clientes/wilson.png" alt="Arte de Wilson Rodrigues, ex-atleta de basquete, para mentoria de professores de Educação Física" loading="lazy"><div class="trabalho-info"><b>Wilson Rodrigues</b><span>Mentoria para professores · WR13 Esportes</span></div></article>
